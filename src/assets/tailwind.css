@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-field {
+    @apply text-black w-full rounded-lg pl-12 py-3 my-3 focus:outline-none shadow-md focus:shadow-lg focus:shadow-bida-primary;
+}
+
+.text-field-icon {
+    @apply absolute pl-3 flex items-center text-bida-primary;
+}
+
+.acnt-btn {
+    @apply block px-5 py-3 mt-4 bg-bida-primary rounded-lg hover:bg-bida-third shadow-md text-bida-secondary hover:duration-200;
+}
+
+.book-card {
+    @apply container p-10 m-7 bg-bida-secondary flex flex-col justify-center flex-initial w-64 max-w-64 h-96 max-h-min rounded-xl overflow-hidden shadow-lg;
+}
+
+.pro-box {
+    @apply block whitespace-nowrap hover:bg-bida-fourth hover:rounded-md py-2 px-3 cursor-pointer;
+}
+
+.profile-section {
+    @apply my-3 p-1 px-3 cursor-pointer;
+}
+
+.nav-section {
+    @apply border-b-2 rounded-t-lg p-3 font-semibold hover:bg-bida-fourth active:bg-bida-fourth hover:duration-200;
+}
+
+.helper-box {
+    @apply hidden absolute right-4 group-hover:block bg-black p-1 text-white text-xs rounded-sm;
+}
+
+.category-box {
+    @apply block p-3 m-2 hover:bg-bida-fourth hover:border-r-2 hover:border-r-bida-primary rounded-l-lg;
+}
+
+.warning {
+    @apply hidden container absolute bg-red-300 border-2 border-red-700 p-7 text-white text-lg rounded-lg;
+}
