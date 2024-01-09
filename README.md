@@ -34,4 +34,13 @@ npm run dev
 
 ```sh
 npm run build
+
 ```
+
+See [Tailwind Configuration](https://tailwindcss.com/docs/configuration) for more details and [TailwindCSS](https://tailwindcss.com) for official documentation.
+
+Clone the project with:
+
+`git clone https://github.com/Afthonia/bibliophile-diaries.git`
+
+See [Github Docs - Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) for more details.
