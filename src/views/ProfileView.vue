@@ -35,7 +35,7 @@
                 </div>
             </div>
         </aside>
-        <main class="flex flex-1 flex-wrap overflow-y-auto p-5 max-w-full">
+        <main class="flex flex-1 items-stretch flex-wrap overflow-y-auto p-5 max-w-full">
             <div v-if="selectedSection !== null">
                 <component :is="menuItems[selectedSection].component"></component>
             </div>

@@ -17,7 +17,7 @@
 
 <script setup>
 //import getBestSellers from '../composables/books/getBestSellers'
-import getPosts from '../composables/get/getPosts';
+import getPosts from '../composables/post/getPosts';
 import PostCard from '../components/PostCard.vue'
 
 // const { bestSellers, loadBestsellers, err } = getBestSellers()

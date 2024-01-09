@@ -14,7 +14,7 @@
 <script setup>
 import PostCard from '../components/PostCard.vue'
 import CommentList from '../components/CommentList.vue'
-import getPost from '../composables/get/getPost'
+import getPost from '../composables/post/getPost'
 import { useRoute } from 'vue-router';
 
 const route = useRoute()

@@ -25,7 +25,7 @@ const getUserComments = (userID) => {
                 userID: comment.user.id,
                 username: comment.user.username,
             }))
-            comments.value = comments.value.filter(comment => comment.userID === userID)
+            // comments.value = comments.value.filter(comment => comment.userID === userID)
             console.log(comments.value)
         } catch (err) {
             error.value = err.message

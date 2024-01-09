@@ -1,5 +1,6 @@
 import { ref } from "vue"
 
+//TODO: modify the function to get the current user's posts
 const getPosts = () => {
     const posts = ref([])
     const error = ref(null)

@@ -56,7 +56,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import getWord from '../composables/get/getWord'
+import getWord from '../composables/dictionary/getWord'
 import InfoModal from '../components/InfoModal.vue';
 
 const modalActive = ref(null)

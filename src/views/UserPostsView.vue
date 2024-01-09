@@ -6,7 +6,7 @@
 
 <script setup>
 import PostCard from '../components/PostCard.vue'
-import getPosts from '../composables/get/getPosts'
+import getPosts from '../composables/post/getPosts'
 
 
 const { posts, load, error } = getPosts()
