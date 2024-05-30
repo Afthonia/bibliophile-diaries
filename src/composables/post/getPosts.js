@@ -1,35 +1,31 @@
-import { ref } from "vue"
+import axios from "axios";
 
-//TODO: modify the function to get the current user's posts
-const getPosts = () => {
-    const posts = ref([])
-    const error = ref(null)
-    const load = async () => {
-        console.log('request sent')
-        try {
-            let data = await fetch(
-                'https://dummyjson.com/posts'
-            )
+const getPosts = async (id = 0) => {
+  console.log("request sent");
 
-            if (!data.ok) {
-                throw Error("No Post Available")
+  return await axios
+    .get("api/post/list")
+    .then((resp) => {
+      if (resp.data) {
+        console.log(resp.data);
+
+        if (id === 0) {
+          return resp.data;
+        } else {
+          let posts = [];
+          resp.data.forEach((post) => {
+            if (post.author_id === id) {
+              posts.push(post);
             }
-
-            let dataJSON = await data.json()
-            console.log(dataJSON.posts)
-            posts.value = dataJSON.posts.map((post) => ({
-                id: post.id,
-                title: post.title,
-                content: post.body,
-            }))
-            console.log(posts.value)
-        } catch (err) {
-            error.value = err.message
-            console.log(error.value)
+          });
+          console.log(posts)
+          return posts
         }
-    }
+      }
+    })
+    .catch((err) => {
+      console.log(error.value);
+    });
+};
 
-    return { posts, load, error }
-}
-
-export default getPosts
+export default getPosts;

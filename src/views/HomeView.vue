@@ -1,36 +1,32 @@
 <template>
-  <!-- <header>
-    <div class="overflow-x-auto">
-      <div class="flex flex-row" v-for="book in bestSellers " :key="bestSellers.indexOf(book)">
-        <BookCard :title="book.title" :coverUrl="book.cover" :authors="book.authors" />
-      </div>
-    </div>
-  </header> -->
   <main class="flex flex-col items-stretch overflow-x-auto">
     <div v-for="post in posts" :key="post.id">
-      <RouterLink :to="{ name: 'post-details', params: { id: post.id }, }">
-        <PostCard :isDetailed="false" :title="post.title" :content="post.content" />
-      </RouterLink>
+      <PostCard
+        :isDetailed="false"
+        :id="post.id"
+        :author="post.author"
+        :authorID="post.author_id"
+        :createdAt="post.created_at"
+        :title="post.title"
+        :content="post.content"
+        :bookTitle="post.book_title"
+        :vote="post.vote"
+        :isLiked="post.is_liked"
+        :likeCount="post.like_count"
+      />
     </div>
   </main>
 </template>
 
 <script setup>
-//import getBestSellers from '../composables/books/getBestSellers'
-import getPosts from '../composables/post/getPosts';
-import PostCard from '../components/PostCard.vue'
+import getPosts from "../composables/post/getPosts";
+import PostCard from "../components/PostCard.vue";
+import { ref } from "vue";
 
-// const { bestSellers, loadBestsellers, err } = getBestSellers()
+const posts = ref([])
 
-// loadBestsellers()
+getPosts(0).then((resp) => {
+  posts.value = resp
+});
 
-// console.log(bestSellers.value)
-
-// if (error.value !== null) {
-//   console.log(error.value)
-// }
-
-const { posts, load, error } = getPosts()
-
-load()
 </script>

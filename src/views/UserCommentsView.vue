@@ -1,17 +1,27 @@
 <template>
-    <div v-for="comment in comments" :key="comment.id">
-        <CommentCard :content="comment.content" />
-    </div>
+  <div v-for="comment in comments" :key="comment.id">
+    <CommentCard
+      :content="comment.content"
+      :commenter="comment.commenter"
+      :createdAt="comment.created_at"
+      :commenterID="comment.commenter_id"
+      :commentID="comment.id"
+    />
+  </div>
 </template>
 
 <script setup>
-import CommentCard from '../components/CommentCard.vue';
-import getComments from '../composables/comment/getComments';
+import { ref } from "vue";
+import CommentCard from "../components/CommentCard.vue";
+import getUserComments from "../composables/comment/getUserComments";
 
+const user = JSON.parse(localStorage.getItem("user"));
 
-const { comments, load, error } = getComments.getUserComments(1)
-//TODO: change the parameter to the actual userID value later
+const comments = ref([]);
 
-load()
-
+if (user && user.token) {
+  getUserComments(user.id).then((resp) => {
+    comments.value = resp;
+  });
+}
 </script>
